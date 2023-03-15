@@ -1,0 +1,26 @@
+<div class="container mx-auto text-center pt-10">
+  <h1 class="font-black text-site-44 leading-site-60 sm:text-site-56 sm:leading-site-80">Продажа запчастей</h1>
+  <p class="text-base lg:w-2/5 mx-auto mt-2.5">
+    Предлагаем продажу бывших в употреблении башенных кранов марки Giraffe TDK, Liebherr, Potain, Terex Comedil и т.д.
+    различной грузоподъемности и комплектации, из наличия или ведем поиск и подбор согласно вашему ТЗ.
+  </p>
+  <div class="flex flex-col items-center gap-y-10 mt-10">
+    <a
+      class="bg-ghost-white inline-flex items-center flex-nowrap text-base lg:text-lg transition-colors duration-300 shrink-0 gap-x-2.5 py-2.5 px-5 rounded-full whitespace-nowrap border border-solid border-ghost-white hover:border-atomic-tangerine hover:bg-white hover:text-atomic-tangerine focus:text-mango-tango focus:outline-mango-tango"
+      href=""
+    >
+      <svg class="w-8 h-8 text-mango-tango shrink-0">
+        <use xlink:href="./icons/icons.svg#icon_pdf"></use>
+      </svg>
+      Запчасти в наличии
+    </a>
+
+
+    <button
+      class="w-full sm:w-auto text-base uppercase transition-colors duration-300 bg-mango-tango text-white py-3 px-4 lg:px-7 font-extrabold hover:bg-atomic-tangerine active:bg-carrot-orange focus:outline-mango-tango"
+      @click="showModal = true"
+    >
+      получить консультацию
+    </button>
+  </div>
+</div>

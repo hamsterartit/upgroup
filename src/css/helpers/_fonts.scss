@@ -1,0 +1,15 @@
+@mixin font-face($name, $weight-name, $weight, $style) {
+  @font-face {
+    font-family: $name;
+    font-style: $style;
+    font-weight: $weight;
+    src:
+      local('Montserrat-' + $weight-name),
+      local('Montserrat' + $weight-name),
+      url('../fonts/' + $name + '-' + $weight-name + '.woff2') format('woff2'),
+      url('../fonts/' + $name + '-' + $weight-name + '.woff') format('woff'),
+      url('../fonts/' + $name + '-' + $weight-name + '.ttf') format('truetype');
+
+    font-display: swap;
+  }
+}

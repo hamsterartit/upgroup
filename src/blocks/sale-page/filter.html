@@ -1,0 +1,180 @@
+<div class="container mx-auto pt-10">
+  <div class="flex flex-nowrap custom-scroll overflow-x-auto gap-x-8 xl:flex-wrap xl:py-4 xl:justify-center" x-data="craneTypes">
+    <template x-for="item in items" :key="item.id">
+      <div>
+        <input
+                class="hidden"
+                type="radio"
+                :id="item.val"
+                :value="item.val"
+                x-model="craneType"
+        />
+        <label
+                class="custom-radio transition-colors duration-300 bg-ghost-white border border-solid border-ghost-white flex items-center flex-nowrap shrink-0 gap-x-2.5 py-2.5 px-5 rounded-full whitespace-nowrap cursor-pointer border border-solid border-ghost-white hover:border-atomic-tangerine hover:bg-white hover:text-atomic-tangerine focus:text-mango-tango focus:outline-mango-tango"
+                :for="item.val"
+        >
+          <svg class="w-8 h-8 text-mango-tango" x-data="{ icon: item.icon }">
+            <use :href="'./icons/icons.svg#icon_'+icon"></use>
+          </svg>
+          <span x-text="item.text"></span>
+        </label>
+      </div>
+    </template>
+  </div>
+
+  <div class="flex flex-col flex-wrap sm:flex-row items-center justify-center gap-6 lg:gap-10 mt-8">
+    <div class="relative" x-data="{ open: false }">
+      <button
+        class="text-base flex items-center gap-x-1 cursor-pointer transition-colors duration-300 text-indigo px-1 hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange"
+        @click="open = !open"
+      >
+        Грузоподъемность, тонн :
+        <span x-text="loadCapacity"></span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20 8L12 16L4 8"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        class="bg-white shadow-lg text-center inline-block absolute -right-2 p-1 z-10"
+        x-show="open"
+        @click.away="open = false"
+        x-data="capacity"
+      >
+        <template x-for="item in items" :key="item.id">
+          <div class="custom-select">
+            <input
+              class="opacity-o invisible absolute"
+              type="radio"
+              name="cap"
+              :id="'capacity'+item.id"
+              :value="item.val"
+              x-model="loadCapacity"
+            />
+            <label
+              class="custom-select w-full inline-block text-sm px-4 py-1.5 cursor-pointer transition-colors duration-300 hover:text-mango-tango"
+              :for="'capacity'+item.id"
+              x-text="item.val"
+              @click="open = false"
+            >
+              1
+            </label>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="relative" x-data="{ open: false }">
+      <button
+        class="text-base flex items-center gap-x-1 cursor-pointer transition-colors duration-300 text-indigo px-1 hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange"
+        @click="open = !open"
+      >
+        Вылет стрелы крана, м
+        <span x-text="craneHeight"></span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20 8L12 16L4 8"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        class="bg-white shadow-lg text-center inline-block absolute -right-2 p-1 z-10"
+        x-show="open"
+        @click.away="open = false"
+        x-data="craneHeights"
+      >
+        <template x-for="item in items" :key="item.id">
+          <div class="custom-select">
+            <input
+              class="opacity-o invisible absolute"
+              type="radio"
+              name="cap"
+              :id="'crane'+item.id"
+              :value="item.val"
+              x-model="craneHeight"
+            />
+            <label
+              class="custom-select w-full inline-block text-sm px-4 py-1.5 cursor-pointer transition-colors duration-300 hover:text-mango-tango"
+              :for="'crane'+item.id"
+              x-text="item.val"
+              @click="open = false"
+            >
+              1
+            </label>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="relative" x-data="{ open: false }">
+      <button
+        class="text-base flex items-center gap-x-1 cursor-pointer transition-colors duration-300 text-indigo px-1 hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange"
+        @click="open = !open"
+      >
+        Высота подъема, м
+        <span x-text="liftHeight"></span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20 8L12 16L4 8"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        class="bg-white shadow-lg text-center inline-block absolute -right-2 p-1 z-10"
+        x-show="open"
+        @click.away="open = false"
+        x-data="liftHeights"
+      >
+        <template x-for="item in items" :key="item.id">
+          <div class="custom-select">
+            <input
+              class="opacity-o invisible absolute"
+              type="radio"
+              name="cap"
+              :id="'lift'+item.id"
+              :value="item.val"
+              x-model="liftHeight"
+            />
+            <label
+              class="custom-select w-full inline-block text-sm px-4 py-1.5 cursor-pointer transition-colors duration-300 hover:text-mango-tango"
+              :for="'lift'+item.id"
+              x-text="item.val"
+              @click="open = false"
+            >
+              1
+            </label>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <button
+      class="text-base px-1 transition-colors duration-300 text-indigo hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange"
+      @click="clickOnFilter()"
+    >
+      Показать
+    </button>
+    <button
+      class="text-base px-1 transition-colors duration-300 text-indigo hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange"
+      @click="clickOnReset()"
+    >
+      Сбросить
+    </button>
+  </div>
+</div>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upgroup</title>
+<link rel="stylesheet" href="./css/styles.css" />
+<script defer src="js/script.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+  <body class="text-indigo" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+    <header
+  class="js-header px-4 py-3 sm:px-7 xl:px-6 xl:py-4 xl:border-b xl:border-light-silver border-solid bg-white z-10"
+  x-data="scrollToReveal()"
+  x-ref="navbar"
+  x-on:scroll.window="scroll()"
+  x-bind:class="{
+                   'sticky top-0': sticky,
+                   'relative': !sticky
+                   }"
+>
+  <div class="flex items-center justify-between" x-data="{ 'isNavOpen': false }">
+    <a class="flex w-24 xl:w-auto" href="/">
+      <img class="w-full h-auto xl:w-auto" src="img/logo.svg" alt="Upgroup logo" width="119" height="40" />
+    </a>
+
+    <nav
+      class="fixed lg:relative left-0 right-0 h-full transition-all bg-white py-12 px-5 lg:p-0"
+      x-bind:class="{
+                   'top-0': isNavOpen,
+                   '-top-full': !isNavOpen
+                   }"
+    >
+      <ul class="flex flex-col gap-y-2 gap-x-4 xl:gap-x-8 lg:flex-row" x-data="menuLinks">
+        <template x-for="item in items" :key="item.id">
+          <li>
+            <a
+              class="p-1 inline-block transition-colors duration-300 text-indigo hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange text-site-22 leading-site-32 lg:text-lg"
+              :href="item.href"
+              x-text="item.text"
+            ></a>
+          </li>
+        </template>
+      </ul>
+
+      <div class="flex flex-col items-center lg:hidden border-t-2 border-t-solid border-light-silver mt-6 pt-5">
+        <a
+          class="gap-x-2 text-base font-extrabold inline-flex transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+          href="tel:+74950111514"
+        >
+          <svg class="w-6 h-6 text-mango-tango">
+            <use xlink:href="./icons/icons.svg#icon_local_phone"></use>
+          </svg>
+          +7 495 011 15 14
+        </a>
+
+        <a
+          class="text-gray text-base transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+          href="mailto:info@upgroup24.ru"
+        >
+          info@upgroup24.ru
+        </a>
+      </div>
+
+      <div class="flex justify-center gap-x-10 mt-6 lg:hidden">
+        <a class="flex" href="/">
+          <img class="w-full h-auto xl:w-auto" src="img/logo.svg" alt="Upgroup logo" width="119" height="40" />
+        </a>
+        <a class="flex" href="/">
+          <img class="w-full h-auto xl:w-auto" src="img/odin-logo.png" alt="" width="48" height="60" />
+        </a>
+      </div>
+
+      <button class="lg:hidden absolute top-2 right-2" @click="isNavOpen = false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18.6894 5.3212C18.2753 4.90709 17.6064 4.90709 17.1923 5.3212L12 10.5028L6.80774 5.31058C6.39363 4.89647 5.72469 4.89647 5.31058 5.31058C4.89647 5.72469 4.89647 6.39363 5.31058 6.80774L10.5028 12L5.31058 17.1923C4.89647 17.6064 4.89647 18.2753 5.31058 18.6894C5.72469 19.1035 6.39363 19.1035 6.80774 18.6894L12 13.4972L17.1923 18.6894C17.6064 19.1035 18.2753 19.1035 18.6894 18.6894C19.1035 18.2753 19.1035 17.6064 18.6894 17.1923L13.4972 12L18.6894 6.80774C19.0929 6.40425 19.0929 5.72469 18.6894 5.3212V5.3212Z"
+            fill="#949494"
+          />
+        </svg>
+      </button>
+    </nav>
+
+    <div class="flex flex-col items-center lg:hidden xl:flex">
+      <a
+        class="gap-x-2 text-base font-extrabold hidden xs:flex transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+        href="tel:+74950111514"
+      >
+        <svg class="w-6 h-6 text-mango-tango">
+          <use xlink:href="./icons/icons.svg#icon_local_phone"></use>
+        </svg>
+        +7 495 011 15 14
+      </a>
+
+      <a
+        class="text-gray text-base hidden xl:block transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+        href="mailto:info@upgroup24.ru"
+      >
+        info@upgroup24.ru
+      </a>
+    </div>
+
+    <button class="lg:hidden" @click="isNavOpen = true">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19.1667 0H0.833333C0.373096 0 0 0.447715 0 1C0 1.55228 0.373096 2 0.833333 2H19.1667C19.6269 2 20 1.55228 20 1C20 0.447715 19.6269 0 19.1667 0Z"
+          fill="#29394D"
+        />
+        <path
+          d="M19.1667 6H0.833333C0.373096 6 0 6.44772 0 7C0 7.55228 0.373096 8 0.833333 8H19.1667C19.6269 8 20 7.55228 20 7C20 6.44772 19.6269 6 19.1667 6Z"
+          fill="#29394D"
+        />
+        <path
+          d="M19.1667 12H0.833333C0.373096 12 0 12.4477 0 13C0 13.5523 0.373096 14 0.833333 14H19.1667C19.6269 14 20 13.5523 20 13C20 12.4477 19.6269 12 19.1667 12Z"
+          fill="#29394D"
+        />
+      </svg>
+    </button>
+  </div>
+</header>
+
+    <main>
+      <section class="banner relative">
+  <picture>
+    <source type="image/jpg" media="(min-width: 1600px)" srcset="img/about-banner_2xl.jpg" />
+    <img class="absolute inset-0 w-full h-full object-cover" src="img/about-banner_xl.jpg" alt="" loading="lazy" />
+  </picture>
+  <div class="banner__bg absolute inset-0"></div>
+  <div class="banner__inner relative container mx-auto flex items-center flex-col lg:flex-row gap-y-3 gap-x-8 2xl:gap-x-32">
+    <div class="text-white pt-4 sm:pt-6 xl:w-3/5 xl:pr-6 xl:pl-28 lg:pb-16 xl:pb-0">
+      <h1 class="font-black text-site-44 leading-site-60 xl:text-site-56 xl:leading-site-80">О компании</h1>
+      <p class="mt-6 text-lg">
+        Первоочередным приоритетом компании являются интересы и пожелания наших клиентов. Мы неизменно ориентированы на
+        предоставление каждому нашему клиенту индивидуального подхода и высококлассного сервиса. Нас отличает
+        профессиональный подход к каждой задаче, а также честность и качество при их реализации.
+      </p>
+      <h2 class="font-black text-site-32 leading-site-48 mt-6">НАДЕЖНОСТЬ. КАЧЕСТВО. ОПЫТ.</h2>
+    </div>
+    <img class="lg:self-end" src="img/flag.png" alt="" loading="lazy" />
+  </div>
+</section>
+
+        <div class="container mx-auto mt-10 lg:mt-20">
+  <div class="flex flex-col-reverse lg:flex-row">
+    <div class="relative w-screen sm:w-auto -ml-4 sm:ml-0 lg:w-2/5">
+      <img class="lg:absolute inset-0 w-full h-full object-cover" src="img/about1.jpg" alt="" loading="lazy" />
+    </div>
+    <div class="lg:bg-ghost-white lg:w-3/5 pb-8 lg:pt-8 lg:px-6 xl:pr-8 xl:pl-14">
+      <p class="text-site-22 leading-site-32">
+        Компания была основана в 2016 году. Сегодня — это диверсифицированное, вертикально-интегрированное предприятие,
+        основными профессиональными видами деятельности, которого является: аренда, продажа, ремонт, сервис и
+        обслуживание башенных кранов, как новых, так и бывших в употреблении.
+      </p>
+      <div class="flex flex-col gap-y-4 sm:flex-row justify-between mt-12">
+        <p>
+          <span class="font-black text-site-40 leading-site-56 sm:text-site-60 sm:leading-site-80 xl:text-site-80 xl:leading-site-120 text-mango-tango block">138</span>
+          <span class="text-site-22 leading-site-32">единиц техники</span>
+        </p>
+        <p>
+          <span class="font-black text-site-40 leading-site-56 sm:text-site-60 sm:leading-site-80 xl:text-site-80 xl:leading-site-120 text-mango-tango block">> 100</span>
+          <span class="text-site-22 leading-site-32">выполненных заказов</span>
+        </p>
+        <p>
+          <span class="font-black text-site-40 leading-site-56 sm:text-site-60 sm:leading-site-80 xl:text-site-80 xl:leading-site-120 text-mango-tango block">> 5</span>
+          <span class="text-site-22 leading-site-32">лет на рынке</span>
+        </p>
+      </div>
+
+      <a
+              class="mt-6 lg:mt-12 w-full sm:w-auto bg-ghost-white inline-flex items-center text-base lg:text-lg  flex-nowrap transition-colors duration-300 shrink-0 gap-x-2.5 py-2.5 px-2.5 lg:px-5 rounded-full whitespace-nowrap border border-solid border-ghost-white hover:border-atomic-tangerine hover:bg-white hover:text-atomic-tangerine focus:text-mango-tango focus:outline-mango-tango"
+              href=""
+      >
+        <svg class="w-8 h-8 text-mango-tango shrink-0">
+          <use xlink:href="./icons/icons.svg#icon_pdf"></use>
+        </svg>
+        Скачать презентацию
+      </a>
+    </div>
+  </div>
+</div>
+
+      <div class="container mx-auto mt-10 lg:mt-20">
+    <div class="flex flex-col lg:flex-row">
+        <div class="lg:bg-ghost-white lg:w-3/5 pb-8 lg:pt-8 lg:px-6 xl:pl-8 xl:pr-14">
+            <h2 class="font-extrabold sm:font-black text-site-22 leading-site-32 sm:text-site-32 sm:leading-site-48">
+                Аренда и продажа башенных кранов по всему миру.
+                Обслуживание, сервис и запчасти.
+            </h2>
+            <p class="text-lg sm:text-site-22 sm:leading-site-32 mt-8">
+                Основными профессиональными видами деятельности компании является: аренда, продажа, ремонт, сервис и
+                обслуживание башенных кранов, как новых, так и бывших в употреблении.
+            </p>
+            <h3 class="font-extrabold sm:font-black text-site-22 leading-site-32 sm:text-site-32 sm:leading-site-48 mt-8">Преимущества сотрудничества с нами:</h3>
+            <ul class="mt-8 flex flex-col gap-y-3">
+                <li class="flex items-center gap-x-4">
+                    <span class="inline-block h-0.5 w-5 bg-mango-tango"></span>
+                    Экономия затрат на содержание и обслуживание</li>
+                <li class="flex items-center gap-x-4">
+                    <span class="inline-block h-0.5 w-5 bg-mango-tango"></span>
+                    Отсутствие необходимости в собственном штате сотрудников</li>
+                <li class="flex items-center gap-x-4">
+                    <span class="inline-block h-0.5 w-5 bg-mango-tango"></span>
+                    Простота оформления аренды и заказа услуг</li>
+                <li class="flex items-center gap-x-4">
+                    <span class="inline-block h-0.5 w-5 bg-mango-tango"></span>
+                    Возможность аренды на любой срок</li>
+            </ul>
+        </div>
+        <div class="relative w-screen sm:w-auto -ml-4 sm:ml-0 lg:w-2/5">
+            <img class="lg:absolute inset-0 w-full h-full object-cover" src="img/about2.jpg" alt="" loading="lazy" />
+        </div>
+    </div>
+</div>
+
+        <div class="container mx-auto mt-10">
+    <div class="flex flex-col-reverse lg:flex-row">
+        <div class="relative w-screen sm:w-auto -ml-4 sm:ml-0 lg:w-2/5">
+            <img class="lg:absolute inset-0 w-full h-full object-cover" src="img/about3.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="lg:bg-ghost-white lg:w-3/5 pb-8 lg:pt-8 lg:px-6 xl:pr-8 xl:pl-14">
+            <h2 class="font-extrabold sm:font-black text-site-22 leading-site-32 sm:text-site-32 sm:leading-site-48">
+                Мы любим наших клиентов и индивидуально подходим к каждому заказу
+            </h2>
+            <div class="flex items-start gap-x-8 mt-10">
+                <img class="w-11 h-auto lg:w-auto" src="img/quote.svg" alt="" width="50" height="50"/>
+                <div>
+                    <p class="text-sm lg:text-site-22 lg:leading-site-32">
+                        Второочередным приоритетом компании являются интересы и пожелания наших клиентов. Мы неизменно
+                        ориентированы на предоставление каждому нашему клиенту индивидуального подхода и высококлассного
+                        сервиса. Первоочередным приоритетом компании являются интересы и пожелания наших клиентов.
+                    </p>
+                    <p class="font-black text-xl lg:text-site-32 lg:leading-site-48 mt-10">Баранова Е. В.</p>
+                    <p class="text-base mt-2">Компания «Медленнострой в Долгопрудном»</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <div class="fixed inset-0 z-50 flex" x-show="showModal">
+  <div class="absolute inset-0 bg-indigo opacity-30"  @click="showModal = false"></div>
+  <div class="relative bg-white m-auto p-14 text-center">
+    <h2>
+      <span class="block font-black text-site-56 leading-site-80">Оставить заявку на</span>
+      <span class="block font-black text-site-38 leading-site-56 mt-8">Продажу запчастей</span>
+    </h2>
+    <form class="mt-8 flex flex-col items-center gap-y-8">
+      <div class="field">
+        <label class="opacity-o invisible absolute" for="name">Представьтесь, пожалуйста</label>
+        <input
+          class="w-full border-light-silver transition-colors duration-300 h-14 mx-3.5outline-2 hover:border-gray focus:border-mango-tango focus:outline-offset-0 focus:outline-atomic-tangerine placeholder-gray"
+          type="text"
+          id="name"
+          placeholder="Представьтесь, пожалуйста"
+        />
+      </div>
+      <div class="field">
+        <label class="opacity-o invisible absolute" for="phone">Ваш телефон</label>
+        <input
+          class="w-full border-light-silver transition-colors duration-300 h-14 mx-3.5outline-2 hover:border-gray focus:border-mango-tango focus:outline-offset-0 focus:outline-atomic-tangerine placeholder-gray"
+          type="text"
+          id="phone"
+          placeholder="Ваш телефон"
+        />
+      </div>
+
+      <label class="flex items-center gap-x-4 text-base cursor-pointer" for="agreed">
+        <input class="opacity-o invisible absolute" type="checkbox" id="agreed" />
+        <span tabindex="0" class="custom-check flex items-center justify-center w-5 h-5 rounded-sm border border-gray transition-colors duration-300 hover:border-mango-tango focus:border-mango-tango focus:outline-offset-0 focus:outline-atomic-tangerine">
+          <svg class="hidden" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.8912 0.361809C12.3736 -0.120603 13.1558 -0.120603 13.6382 0.361809C14.1206 0.844222 14.1206 1.62637 13.6382 2.10878L6.22643 9.52054C5.74401 10.003 4.96187 10.003 4.47946 9.52054L0.361809 5.4029C-0.120603 4.92048 -0.120603 4.13834 0.361809 3.65593C0.844222 3.17351 1.62637 3.17351 2.10878 3.65593L5.35294 6.90009L11.8912 0.361809Z"
+              fill="white"
+            />
+          </svg>
+        </span>
+        Согласен на обработку своих персональных данных
+      </label>
+
+      <button
+        class="text-base uppercase transition-colors duration-300 bg-mango-tango text-white py-3 px-7 font-extrabold hover:bg-atomic-tangerine active:bg-carrot-orange focus:outline-mango-tango"
+      >
+        Отправить
+      </button>
+    </form>
+  </div>
+</div>
+ <footer class="mt-10 pt-10 pb-6 bg-ghost-white">
+  <div class="container mx-auto">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start sm:pr-14 md2:block">
+      <nav>
+        <ul class="flex flex-col justify-center gap-y-2 gap-x-6 lg:gap-x-8 lg:flex-row" x-data="menuLinks">
+          <template x-for="item in items" :key="item.id">
+            <li>
+              <a
+                      class="p-1 inline-block transition-colors duration-300 text-indigo hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange text-site-22 leading-site-32 lg:text-lg"
+                      :href="item.href"
+                      x-text="item.text"
+              ></a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+      <div class="flex justify-center gap-x-10 mt-6">
+        <a class="flex" href="/">
+          <img class="w-full h-auto xl:w-auto" src="img/logo.svg" alt="Upgroup logo" width="119" height="40" />
+        </a>
+        <a class="flex" href="/">
+          <img class="w-full h-auto xl:w-auto" src="img/odin-logo.png" alt="" width="48" height="60" />
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-x-4 mt-5 items-start sm:flex-row lg:justify-center">
+      <p class="text-gray text-base">@ UP GROUP 2023</p>
+      <a
+        class="text-gray text-base mt-4 sm:mt-0 border-b border-solid border-mango-tango transition-colors duration-300 hover:text-mango-tango active:text-carrot-orange"
+        href="/upgroup/policy.html"
+        >Политика конфиденциальности</a
+      >
+    </div>
+    <div class="flex lg:justify-center gap-x-4 mt-4">
+      <span class="text-gray text-base">Made by </span>
+      <a
+        class="text-gray text-base border-b border-solid border-mango-tango transition-colors duration-300 hover:text-mango-tango active:text-carrot-orange"
+        href=""
+        >.mpmstudio</a
+      >
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,98 @@
+.field {
+  display: flex;
+  position: relative;
+  height: 56px;
+
+  transition: border-color 250ms;
+
+  border: 1px solid $input-brd;
+  border-radius: 4px;
+
+  background-color: $input-bg;
+
+  line-height: 56px;
+
+  &:hover {
+    border-color: $input-brd-hover;
+  }
+
+  &:focus-within {
+    border-color: $input-brd-focus;
+  }
+
+  &_invalid {
+    border-color: $input-brd-error;
+  }
+}
+
+.field__input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+
+  border: 0;
+
+  background-color: transparent;
+
+  color: $input-text;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+
+  caret-color: $input-caret;
+
+  &:focus,
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &:focus::placeholder,
+  &:focus-visible::placeholder {
+    opacity: 1;
+  }
+
+  &::placeholder {
+    opacity: 0;
+
+    color: $input-placeholder;
+  }
+}
+
+.field__lbl {
+  position: absolute;
+  z-index: 0;
+  top: calc(50% - 12px);
+  left: 16px;
+
+  transition: top 250ms;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  .field:focus-within &,
+  .field__input:valid:not(:placeholder-shown) + &,
+  .field__input:invalid:not(:placeholder-shown) + & {
+    top: 3px;
+
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .field:hover & {
+    color: $input-lbl-hover;
+  }
+
+  .field:focus-within & {
+    color: $input-lbl-focus;
+  }
+
+  .field__input:valid:not(:placeholder-shown) + & {
+    color: $input-lbl-filled;
+  }
+
+  .field__input:invalid:not(:placeholder-shown) + & {
+    color: $input-lbl-error;
+  }
+}

@@ -1,0 +1,43 @@
+<div class="container mx-auto text-center pt-20">
+  <h2 class="font-black text-site-38 leading-site-56">Оказываемые услуги</h2>
+  <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mt-2.5 p-2.5" x-data="shortServices">
+    <template x-for="item in items" :key="item.id">
+      <div class="text-lg p-1 flex gap-x-1 transition-colors duration-300 cursor-pointer text-indigo hover:bg-ghost-white hover:text-atomic-tangerine">
+        <svg class="w-8 h-8 text-current" x-data="{ icon: item.icon }">
+          <use :href="'./icons/icons.svg#icon_'+icon"></use>
+        </svg>
+        <span x-text="item.text"></span>
+      </div>
+    </template>
+  </div>
+</div>
+
+<div class="container mx-auto text-center pt-20">
+  <h2 class="font-black text-site-38 leading-site-56">Варианты исполнения</h2>
+  <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mt-2.5 p-2.5">
+    <p class="text-lg p-1">
+      Анкерное основание
+    </p>
+    <p class="text-lg p-1">
+      Опорная рама
+    </p>
+    <p class="text-lg p-1">
+      Рельсовое основание
+    </p>
+    <p class="text-lg p-1">
+      Крест
+    </p>
+  </div>
+</div>
+
+<div class="container mx-auto text-center pt-20">
+  <h2 class="font-black text-site-38 leading-site-56">Сео заголовок</h2>
+  <p class="text-base w-2/5 mx-auto mt-2.5">
+    Сео текст для ранжирования
+  </p>
+
+  <p class="text-base lg:w-2/5 mx-auto mt-5">
+    Наша компания предоставляет аренду башенных кранов марки Giraffe TDK и Liebherr различной грузоподъемности и комплектации
+  </p>
+</div>
+

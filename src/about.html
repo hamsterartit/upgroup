@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('./blocks/head.html')
+  </head>
+  <body class="text-indigo" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+    @@include('./blocks/header/header.html')
+    <main>
+      @@include('./blocks/about-page/about-banner.html')
+        @@include('./blocks/about-page/about-block-1.html')
+      @@include('./blocks/about-page/about-block-2.html')
+        @@include('./blocks/about-page/about-block-3.html')
+    </main>
+    @@include('./blocks/modal.html') @@include('./blocks/footer/footer.html')
+  </body>
+</html>

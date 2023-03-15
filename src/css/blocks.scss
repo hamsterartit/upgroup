@@ -1,0 +1,110 @@
+.container {
+  @media (max-width: 1024px) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.banner,
+.banner__inner {
+  min-height: 480px;
+
+  @media (min-width: 1280px) {
+    min-height: 560px;
+  }
+}
+
+.banner__bg {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) -16.88%, rgba(0, 0, 0, 0) 76.88%);
+}
+
+.tile {
+  min-height: 212px;
+  height: auto;
+}
+
+.tile--272 {
+  @media (min-width: 1280px) {
+    min-height: 272px;
+  }
+}
+
+.tile--300 {
+  @media (min-width: 1280px) {
+    min-height: 300px;
+  }
+}
+
+.tile--600 {
+  @media (min-width: 600px) {
+    min-height: 284px;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 400px;
+  }
+
+  @media (min-width: 1280px) {
+    min-height: 600px;
+  }
+}
+
+.tile__bg {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.tile__text  {
+  max-width: 180px;
+
+  @media (min-width: 600px) {
+    max-width: 210px;
+  }
+}
+
+:checked + .custom-radio {
+  @apply border-mango-tango bg-white;
+}
+
+:checked + .custom-select {
+  @apply bg-mango-tango text-white;
+
+  &:hover {
+    @apply text-white;
+  }
+}
+
+.policy-box {
+  max-width: 64rem
+}
+
+.policy-box a {
+  @apply transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange
+}
+
+.field {
+  width: 400px;
+}
+
+:checked + .custom-check {
+  @apply bg-mango-tango border-mango-tango;
+
+  svg {
+    @apply block
+  }
+}
+
+.hover-tile:hover .hover-tile-title {
+@apply text-carrot-orange;
+}
+
+a, button {
+  &:focus, &:focus-visible {
+    @apply outline-mango-tango;
+  }
+}
+
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

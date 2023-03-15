@@ -1,0 +1,40 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+
+  transition: background-color 250ms;
+
+  border: 1px solid $btn-bg;
+  border-radius: 4px;
+  outline: 0;
+
+  background-color: $btn-bg;
+
+  color: $btn-text;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+
+  &:hover {
+    background-color: $btn-bg-hover;
+  }
+
+  &:focus,
+  &:focus-visible {
+    background-color: $btn-bg-focus;
+  }
+
+  &:active {
+    background-color: $btn-bg-active;
+  }
+
+  &:disabled {
+    background-color: $btn-bg-disabled;
+  }
+}
+
+.btn_full {
+  width: 100%;
+}

@@ -1,0 +1,71 @@
+<div class="container mx-auto pt-10">
+  <div class="flex flex-wrap items-center gap-3">
+    <a class="text-gray" href="/">Главная</a>
+    <span class="inline-block h-0.5 w-5 bg-mango-tango"></span>
+    <a class="text-gray" href="">Продажа</a>
+    <span class="inline-block h-0.5 w-5 bg-mango-tango"></span>
+    <a class="text-gray" href="">Портальные краны</a>
+    <span class="inline-block h-0.5 w-5 bg-mango-tango hidden lg:inline-block"></span>
+    <span class="hidden lg:inline-block">GiraFFe TDK-8.180</span>
+  </div>
+  <div class="mt-10 flex gap-6 flex-col lg:flex-row">
+    <h1 class="font-black text-site-44 leading-site-60 lg:hidden">GiraFFe TDK-8.180</h1>
+    <div class="contents lg:block">
+      <div>
+        <img class="w-full h-full object-contain" src="img/img16.jpg" alt="" loading="lazy" />
+      </div>
+
+      <div class="lg:mt-14 xl:pl-48 order-1">
+        <h2 class="font-extrabold text-2xl mb-4">Описание</h2>
+        <p class="mb-10">
+          Портальный кран-погрузчик TDKP-32.480 – уникальное решение любых потребностей в грузоподъемной технике на
+          складских и транспортных комплексах. П-образный портал позволяет монтировать кран над железнодорожными путями,
+          что значительно ускоряет и упрощает погрузочно-разгрузочные работы на железнодорожном транспорте.
+        </p>
+        <p class="mb-10">
+          Полноповоротная стрела с максимальным вылетом 38 метров позволяет обслуживать огромные площади из одной точки,
+          что во много раз превосходит возможности традиционных козловых кранов.
+        </p>
+      </div>
+    </div>
+    <div class="shrink-0">
+      <h1 class="font-black text-site-38 leading-site-56 hidden lg:block">GiraFFe TDK-8.180</h1>
+      <h2 class="font-extrabold text-2xl lg:mt-8 mb-4">Технические характеристики</h2>
+      <p class="text-lg mt-1.5">Грузоподъемность, тонн: <span class="font-extrabold">8</span></p>
+      <p class="text-lg mt-1.5">Вылет стрелы крана, м: <span class="font-extrabold">60</span></p>
+      <p class="text-lg mt-1.5">Грузоподъемность при макс. вылете, т <span class="font-extrabold">7,5</span></p>
+      <p class="text-lg mt-1.5">Макс. высота свободного стояния, м <span class="font-extrabold">15</span></p>
+      <p class="text-lg mt-1.5">Высота подъема, м: <span class="font-extrabold">49-53</span></p>
+      <p class="text-lg mt-1.5">Год выпуска: <span class="font-extrabold">2013-2022</span></p>
+
+      <div class="flex flex-col items-start gap-y-4 mt-4">
+        <a
+                class="w-full lg:w-auto bg-ghost-white inline-flex items-center text-base lg:text-lg  flex-nowrap transition-colors duration-300 shrink-0 gap-x-2.5 py-2.5 px-2.5 lg:px-5 rounded-full whitespace-nowrap border border-solid border-ghost-white hover:border-atomic-tangerine hover:bg-white hover:text-atomic-tangerine focus:text-mango-tango focus:outline-mango-tango"
+                href=""
+        >
+          <svg class="w-8 h-8 text-mango-tango shrink-0">
+            <use xlink:href="./icons/icons.svg#icon_pdf"></use>
+          </svg>
+          Техническая документация
+        </a>
+
+        <a
+          class="w-full lg:w-auto bg-ghost-white inline-flex items-center text-base lg:text-lg  flex-nowrap transition-colors duration-300 shrink-0 gap-x-2.5 py-2.5 px-2.5 lg:px-5 rounded-full whitespace-nowrap border border-solid border-ghost-white hover:border-atomic-tangerine hover:bg-white hover:text-atomic-tangerine focus:text-mango-tango focus:outline-mango-tango"
+          href=""
+        >
+          <svg class="w-8 h-8 text-mango-tango shrink-0">
+            <use xlink:href="./icons/icons.svg#icon_pdf"></use>
+          </svg>
+          Техническая документация
+        </a>
+
+        <button
+          class="w-full lg:w-auto text-base uppercase transition-colors duration-300 bg-mango-tango text-white py-3 px-4 lg:px-7 font-extrabold hover:bg-atomic-tangerine active:bg-carrot-orange focus:outline-mango-tango"
+          @click="showModal = true"
+        >
+          получить консультацию
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

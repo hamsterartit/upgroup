@@ -1,0 +1,48 @@
+<div class="fixed inset-0 z-50 flex" x-show="showModal">
+  <div class="absolute inset-0 bg-indigo opacity-30"  @click="showModal = false"></div>
+  <div class="relative bg-white m-auto p-14 text-center">
+    <h2>
+      <span class="block font-black text-site-56 leading-site-80">Оставить заявку на</span>
+      <span class="block font-black text-site-38 leading-site-56 mt-8">Продажу запчастей</span>
+    </h2>
+    <form class="mt-8 flex flex-col items-center gap-y-8">
+      <div class="field">
+        <label class="opacity-o invisible absolute" for="name">Представьтесь, пожалуйста</label>
+        <input
+          class="w-full border-light-silver transition-colors duration-300 h-14 mx-3.5outline-2 hover:border-gray focus:border-mango-tango focus:outline-offset-0 focus:outline-atomic-tangerine placeholder-gray"
+          type="text"
+          id="name"
+          placeholder="Представьтесь, пожалуйста"
+        />
+      </div>
+      <div class="field">
+        <label class="opacity-o invisible absolute" for="phone">Ваш телефон</label>
+        <input
+          class="w-full border-light-silver transition-colors duration-300 h-14 mx-3.5outline-2 hover:border-gray focus:border-mango-tango focus:outline-offset-0 focus:outline-atomic-tangerine placeholder-gray"
+          type="text"
+          id="phone"
+          placeholder="Ваш телефон"
+        />
+      </div>
+
+      <label class="flex items-center gap-x-4 text-base cursor-pointer" for="agreed">
+        <input class="opacity-o invisible absolute" type="checkbox" id="agreed" />
+        <span tabindex="0" class="custom-check flex items-center justify-center w-5 h-5 rounded-sm border border-gray transition-colors duration-300 hover:border-mango-tango focus:border-mango-tango focus:outline-offset-0 focus:outline-atomic-tangerine">
+          <svg class="hidden" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.8912 0.361809C12.3736 -0.120603 13.1558 -0.120603 13.6382 0.361809C14.1206 0.844222 14.1206 1.62637 13.6382 2.10878L6.22643 9.52054C5.74401 10.003 4.96187 10.003 4.47946 9.52054L0.361809 5.4029C-0.120603 4.92048 -0.120603 4.13834 0.361809 3.65593C0.844222 3.17351 1.62637 3.17351 2.10878 3.65593L5.35294 6.90009L11.8912 0.361809Z"
+              fill="white"
+            />
+          </svg>
+        </span>
+        Согласен на обработку своих персональных данных
+      </label>
+
+      <button
+        class="text-base uppercase transition-colors duration-300 bg-mango-tango text-white py-3 px-7 font-extrabold hover:bg-atomic-tangerine active:bg-carrot-orange focus:outline-mango-tango"
+      >
+        Отправить
+      </button>
+    </form>
+  </div>
+</div>

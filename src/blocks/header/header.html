@@ -1,0 +1,109 @@
+<header
+  class="js-header px-4 py-3 sm:px-7 xl:px-6 xl:py-4 xl:border-b xl:border-light-silver border-solid bg-white z-10"
+  x-data="scrollToReveal()"
+  x-ref="navbar"
+  x-on:scroll.window="scroll()"
+  x-bind:class="{
+                   'sticky top-0': sticky,
+                   'relative': !sticky
+                   }"
+>
+  <div class="flex items-center justify-between" x-data="{ 'isNavOpen': false }">
+    <a class="flex w-24 xl:w-auto" href="/">
+      <img class="w-full h-auto xl:w-auto" src="img/logo.svg" alt="Upgroup logo" width="119" height="40" />
+    </a>
+
+    <nav
+      class="fixed lg:relative left-0 right-0 h-full transition-all bg-white py-12 px-5 lg:p-0"
+      x-bind:class="{
+                   'top-0': isNavOpen,
+                   '-top-full': !isNavOpen
+                   }"
+    >
+      <ul class="flex flex-col gap-y-2 gap-x-4 xl:gap-x-8 lg:flex-row" x-data="menuLinks">
+        <template x-for="item in items" :key="item.id">
+          <li>
+            <a
+              class="p-1 inline-block transition-colors duration-300 text-indigo hover:bg-ghost-white hover:text-atomic-tangerine active:text-carrot-orange text-site-22 leading-site-32 lg:text-lg"
+              :href="item.href"
+              x-text="item.text"
+            ></a>
+          </li>
+        </template>
+      </ul>
+
+      <div class="flex flex-col items-center lg:hidden border-t-2 border-t-solid border-light-silver mt-6 pt-5">
+        <a
+          class="gap-x-2 text-base font-extrabold inline-flex transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+          href="tel:+74950111514"
+        >
+          <svg class="w-6 h-6 text-mango-tango">
+            <use xlink:href="./icons/icons.svg#icon_local_phone"></use>
+          </svg>
+          +7 495 011 15 14
+        </a>
+
+        <a
+          class="text-gray text-base transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+          href="mailto:info@upgroup24.ru"
+        >
+          info@upgroup24.ru
+        </a>
+      </div>
+
+      <div class="flex justify-center gap-x-10 mt-6 lg:hidden">
+        <a class="flex" href="/">
+          <img class="w-full h-auto xl:w-auto" src="img/logo.svg" alt="Upgroup logo" width="119" height="40" />
+        </a>
+        <a class="flex" href="/">
+          <img class="w-full h-auto xl:w-auto" src="img/odin-logo.png" alt="" width="48" height="60" />
+        </a>
+      </div>
+
+      <button class="lg:hidden absolute top-2 right-2" @click="isNavOpen = false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18.6894 5.3212C18.2753 4.90709 17.6064 4.90709 17.1923 5.3212L12 10.5028L6.80774 5.31058C6.39363 4.89647 5.72469 4.89647 5.31058 5.31058C4.89647 5.72469 4.89647 6.39363 5.31058 6.80774L10.5028 12L5.31058 17.1923C4.89647 17.6064 4.89647 18.2753 5.31058 18.6894C5.72469 19.1035 6.39363 19.1035 6.80774 18.6894L12 13.4972L17.1923 18.6894C17.6064 19.1035 18.2753 19.1035 18.6894 18.6894C19.1035 18.2753 19.1035 17.6064 18.6894 17.1923L13.4972 12L18.6894 6.80774C19.0929 6.40425 19.0929 5.72469 18.6894 5.3212V5.3212Z"
+            fill="#949494"
+          />
+        </svg>
+      </button>
+    </nav>
+
+    <div class="flex flex-col items-center lg:hidden xl:flex">
+      <a
+        class="gap-x-2 text-base font-extrabold hidden xs:flex transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+        href="tel:+74950111514"
+      >
+        <svg class="w-6 h-6 text-mango-tango">
+          <use xlink:href="./icons/icons.svg#icon_local_phone"></use>
+        </svg>
+        +7 495 011 15 14
+      </a>
+
+      <a
+        class="text-gray text-base hidden xl:block transition-colors duration-300 hover:text-atomic-tangerine active:text-carrot-orange"
+        href="mailto:info@upgroup24.ru"
+      >
+        info@upgroup24.ru
+      </a>
+    </div>
+
+    <button class="lg:hidden" @click="isNavOpen = true">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19.1667 0H0.833333C0.373096 0 0 0.447715 0 1C0 1.55228 0.373096 2 0.833333 2H19.1667C19.6269 2 20 1.55228 20 1C20 0.447715 19.6269 0 19.1667 0Z"
+          fill="#29394D"
+        />
+        <path
+          d="M19.1667 6H0.833333C0.373096 6 0 6.44772 0 7C0 7.55228 0.373096 8 0.833333 8H19.1667C19.6269 8 20 7.55228 20 7C20 6.44772 19.6269 6 19.1667 6Z"
+          fill="#29394D"
+        />
+        <path
+          d="M19.1667 12H0.833333C0.373096 12 0 12.4477 0 13C0 13.5523 0.373096 14 0.833333 14H19.1667C19.6269 14 20 13.5523 20 13C20 12.4477 19.6269 12 19.1667 12Z"
+          fill="#29394D"
+        />
+      </svg>
+    </button>
+  </div>
+</header>

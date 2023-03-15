@@ -1,0 +1,48 @@
+.radioBtn__lbl {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 14px 22px;
+
+  transition: border-color 250ms;
+
+  border: 2px solid $radio-brd;
+  border-radius: 8px;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  cursor: pointer;
+
+  gap: 16px;
+
+  @include sm-block {
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+
+    border-radius: 16px;
+  }
+
+  &:hover,
+  :checked + & {
+    border-color: $radio-brd-hover;
+  }
+}
+
+.radioBtn__icon {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+
+  border: 2px solid $radio-icon;
+  border-radius: 9999px;
+
+  color: $radio-icon;
+
+  @include sm-block {
+    width: 56px;
+    height: 56px;
+    padding: 14px;
+  }
+}

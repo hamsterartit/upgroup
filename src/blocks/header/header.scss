@@ -1,0 +1,51 @@
+.header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background-color: $primary;
+
+  @include lg-block {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+}
+
+.header__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__logoImg {
+  width: 166px;
+  height: 29px;
+
+  @include lg-block {
+    width: 206px;
+    height: 37px;
+  }
+}
+
+.header__logoText {
+  opacity: 0.8;
+
+  color: $text-contrast;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  line-height: 11px;
+  text-transform: uppercase;
+
+  @include lg-block {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+.header__link {
+  margin-top: 8px;
+}

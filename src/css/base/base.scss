@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'MPLUS1p', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  @apply text-lg font-medium;
+}
+
+button {
+  font-family: inherit;
+}
+
+[x-cloak] {
+  display: none;
+}
