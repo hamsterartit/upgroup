@@ -1,3 +1,5 @@
+исходники в папке src, билд в папке dist
+
 ## Installation
 
 ```bash
